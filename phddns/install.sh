@@ -42,7 +42,7 @@ exit_install(){
 # 判断路由架构和平台
 case $(uname -m) in
     aarch64)
-        if [ "$(uname -o|grep Merlin)" -a -d "/koolshare" ];then
+        if [ "$(uname -o|grep Merlin)" -o "$(uname -o|grep Koolcenter)" ] && [ -d "/koolshare" ];then
             echo_date 机型：$MODEL $(_get_type) 符合安装要求，开始安装插件！
         else
             exit_install 1
